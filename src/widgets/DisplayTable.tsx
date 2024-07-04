@@ -33,7 +33,11 @@ export const DisplayTable = () => {
     return <Loader2 className="mr-2 h-10 w-10 animate-spin" />;
   }
   if (!tables || tables.length == 0) {
-    return <section>Очередь пуста.</section>;
+    return (
+      <section>
+        <h1 className="text-3xl">Очередь пуста.</h1>
+      </section>
+    );
   }
   return (
     <Table>

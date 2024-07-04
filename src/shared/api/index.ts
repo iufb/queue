@@ -2,6 +2,20 @@ import { IQueue } from "@/shared/lib";
 import { getCookie } from "cookies-next";
 
 const backendUrl = "http://77.243.80.138:8000";
+export const deleteAdminTask = (id: number) => {
+  return customFetch({
+    path: "delete-task",
+    method: "DELETE",
+    body: { json: { id } },
+  });
+};
+export const fetchAdminTask = (table: number): Promise<IQueue> => {
+  return customFetch({
+    path: `get-admin-task/${table}`,
+    method: "GET",
+    // token: `Token ${getCookie("token")}`,
+  });
+};
 export const getAuthedTable = () => {
   return customFetch({
     path: "profile/",
@@ -72,9 +86,9 @@ const customFetch = async (params: CRequest) => {
     body,
     headers,
   });
-  const isJson = response.headers
-    .get("content-type")
-    ?.includes("application/json");
+  const isJson =
+    response.headers.get("content-type")?.includes("application/json") &&
+    params.method !== "DELETE";
   if (response.ok) {
     if (isJson) {
       return response.json();
