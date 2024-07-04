@@ -3,7 +3,7 @@ import { Header, QueueView } from "@/widgets";
 import { cookies } from "next/headers";
 
 import { redirect } from "next/navigation";
-export const getQueueData = () => {
+const getQueueData = () => {
   const cookiesData = cookies().get("queueData");
 
   if (cookiesData) {

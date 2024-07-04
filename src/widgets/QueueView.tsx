@@ -13,7 +13,7 @@ export const QueueView = async ({ queueData }: QueueViewProps) => {
         <CardTitle className="text-center">{t("title")}</CardTitle>
       </CardHeader>
       <CardContent>
-        <CurrentQueueView queueData={queueData} />
+        <CurrentQueueView />
       </CardContent>
     </Card>
   );
