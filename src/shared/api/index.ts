@@ -1,6 +1,21 @@
 import { IQueue } from "@/shared/lib";
+import { getCookie } from "cookies-next";
 
 const backendUrl = "http://77.243.80.138:8000";
+export const getAuthedTable = () => {
+  return customFetch({
+    path: "profile/",
+    method: "GET",
+    token: `Token ${getCookie("token")}`,
+  });
+};
+export const adminLogin = (data: { username: string; password: string }) => {
+  return customFetch({
+    path: "api-token-auth/",
+    method: "POST",
+    body: { json: data },
+  });
+};
 export const createQueue = (program: string) => {
   return customFetch({
     path: "post-task",
