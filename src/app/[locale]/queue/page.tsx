@@ -19,12 +19,5 @@ export default function Index() {
     redirect("/");
   }
 
-  return (
-    <>
-      <Header />
-      <section className="px-3 flex h-[calc(100vh-64px)] w-full items-center justify-center">
-        <QueueView queueData={queueData} />
-      </section>
-    </>
-  );
+  return <QueueView queueData={queueData} />;
 }

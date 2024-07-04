@@ -20,3 +20,13 @@ export {
   SelectTrigger,
   SelectValue,
 } from "./select";
+export {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./table";

@@ -1,3 +1,5 @@
+import { IQueue } from "@/shared/lib";
+
 const backendUrl = "http://77.243.80.138:8000";
 export const createQueue = (program: string) => {
   return customFetch({
@@ -8,6 +10,12 @@ export const createQueue = (program: string) => {
         op: program,
       },
     },
+  });
+};
+export const getDisplayQueue = (): Promise<IQueue[]> => {
+  return customFetch({
+    path: "get-queue",
+    method: "GET",
   });
 };
 export const getCurrentQueue = (id: number) => {

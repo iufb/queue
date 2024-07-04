@@ -10,12 +10,5 @@ export default function Index({ params }: { params: { locale: string } }) {
   if (queueData) {
     redirect(`/${locale}/queue`);
   }
-  return (
-    <>
-      <Header />
-      <section className="px-3 flex h-[calc(100vh-64px)] w-full items-center justify-center">
-        <QueueForm />
-      </section>
-    </>
-  );
+  return <QueueForm />;
 }

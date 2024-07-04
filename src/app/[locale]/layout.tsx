@@ -1,3 +1,4 @@
+import { Header } from "@/widgets";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
@@ -16,7 +17,10 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <Header />
+          <section className="px-3 flex h-[calc(100vh-64px)] w-full items-center justify-center">
+            {children}
+          </section>
         </NextIntlClientProvider>
       </body>
     </html>
