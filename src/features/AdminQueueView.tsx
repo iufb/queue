@@ -30,7 +30,7 @@ export const AdminQueueView = ({ table }: AdminQueueViewProps) => {
       }
     };
     IntervalCallback();
-    const interval = setInterval(IntervalCallback, 10000);
+    const interval = setInterval(IntervalCallback, 5000);
     return () => clearInterval(interval);
   }, []);
   if (loading) {

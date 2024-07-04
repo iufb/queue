@@ -11,9 +11,11 @@ import {
   TableCell,
 } from "@/shared/ui";
 import { Loader2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 export const DisplayTable = () => {
+  const t = useTranslations("display");
   const [tables, setTables] = useState<IQueue[] | null>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -35,7 +37,7 @@ export const DisplayTable = () => {
   if (!tables || tables.length == 0) {
     return (
       <section>
-        <h1 className="text-3xl">Очередь пуста.</h1>
+        <h1 className="text-3xl">{t("empty")}</h1>
       </section>
     );
   }
@@ -45,7 +47,7 @@ export const DisplayTable = () => {
         <TableRow>
           {tables.map((table) => (
             <TableHead className="text-2xl" key={table.table}>
-              Стол № {table.table}
+              {t("table")} {table.table}
             </TableHead>
           ))}
         </TableRow>

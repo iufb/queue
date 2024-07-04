@@ -2,16 +2,15 @@
 import { getCurrentQueue } from "@/shared/api";
 import { IQueue } from "@/shared/lib";
 import { cn } from "@/shared/lib/utils";
-import { deleteCookie } from "cookies-next";
+import { deleteCookie, getCookie } from "cookies-next";
 import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useTranslations } from "use-intl";
 
-interface CurrentQueueViewProps {
-  queueData: IQueue;
-}
-export const CurrentQueueView = ({ queueData }: CurrentQueueViewProps) => {
+interface CurrentQueueViewProps {}
+export const CurrentQueueView = ({}: CurrentQueueViewProps) => {
   const t = useTranslations("queueView");
+  const queueData = JSON.parse(getCookie("queueData") || "{}");
   const router = useRouter();
   const [current, setCurrent] = useState<IQueue | null>(null);
   useEffect(() => {
@@ -60,7 +59,7 @@ export const CurrentQueueView = ({ queueData }: CurrentQueueViewProps) => {
       </span>
       {current && current.order == queueData.order && (
         <span className="text-green-500 text-lg ">
-          Подойдите к столу № {queueData.table}
+          {t("successTable")} {queueData.table}
         </span>
       )}
     </section>

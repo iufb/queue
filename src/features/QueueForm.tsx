@@ -33,7 +33,9 @@ export const QueueForm = () => {
         console.log(data);
         setCookie("queueData", JSON.stringify(data));
         setSuccess(t("success"));
-        router.push(path + "/queue");
+        setTimeout(() => {
+          router.push(path + "/queue");
+        }, 1000);
       })
       .catch((e) => {
         {
