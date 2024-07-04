@@ -32,24 +32,34 @@ export const CurrentQueueView = ({ queueData }: CurrentQueueViewProps) => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <section className="flex flex-col gap-3">
+    <section className="flex flex-col gap-3 text-center">
       <span>
         {t("table")} {queueData.table}
       </span>
       {current && (
-        <span>
-          {t("current")} {current.order}
-        </span>
+        <div className="flex flex-col items-center gap-5">
+          <span>{t("current")}</span>
+          <span
+            className={cn(
+              "text-6xl bg-black px-6 py-2 rounded-full text-white",
+              current && current.order == queueData.order && "bg-green-500",
+            )}
+          >
+            {current.order}
+          </span>
+        </div>
       )}
       <span
         className={cn(
-          current && current.order == queueData.order && "text-green-500",
+          current &&
+            current.order == queueData.order &&
+            "text-green-500 text-xl",
         )}
       >
-        {t("yourQueue")} {queueData.order}
+        {t("yourQueue")} <span>{queueData.order}</span>
       </span>
       {current && current.order == queueData.order && (
-        <span className="text-green-500">
+        <span className="text-green-500 text-lg ">
           Подойдите к столу № {queueData.table}
         </span>
       )}

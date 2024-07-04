@@ -32,7 +32,6 @@ export const QueueForm = () => {
       .then((data) => {
         console.log(data);
         setCookie("queueData", JSON.stringify(data));
-        setCookie("id", data.id);
         setSuccess(t("success"));
         router.push(path + "/queue");
       })
@@ -56,7 +55,7 @@ export const QueueForm = () => {
       </CardHeader>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4">
         <Select onValueChange={(value) => setProgram(value)}>
-          <SelectTrigger className="max-w-[200px]">
+          <SelectTrigger className="max-w-[calc(100vw-20px)]">
             <SelectValue placeholder={t("selectPlaceholder")} />
           </SelectTrigger>
           <SelectContent className="max-w-[calc(100vw-20px)]">
