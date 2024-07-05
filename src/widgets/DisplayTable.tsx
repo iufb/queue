@@ -1,14 +1,13 @@
 "use client";
 import { getDisplayQueue } from "@/shared/api";
-import { IQueue, useRequest } from "@/shared/lib";
+import { IQueue } from "@/shared/lib";
 import {
   Table,
-  TableCaption,
-  TableHeader,
-  TableRow,
-  TableHead,
   TableBody,
   TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
 } from "@/shared/ui";
 import { Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -45,7 +44,7 @@ export const DisplayTable = () => {
     <Table>
       <TableHeader>
         <TableRow>
-          {tables.map((table) => (
+          {tables.slice(0, 8).map((table) => (
             <TableHead className="text-2xl" key={table.table}>
               {t("table")} {table.table}
             </TableHead>
@@ -54,9 +53,29 @@ export const DisplayTable = () => {
       </TableHeader>
       <TableBody>
         <TableRow>
-          {tables.map((table) => (
+          {tables.slice(0, 8).map((table, idx) => (
             <TableCell className="text-2xl" key={table.id}>
               № {table.order}
+              {idx === 7 && <br />}
+            </TableCell>
+          ))}
+        </TableRow>
+      </TableBody>
+      <TableHeader>
+        <TableRow>
+          {tables.slice(8, tables.length).map((table) => (
+            <TableHead className="text-2xl" key={table.table}>
+              {t("table")} {table.table}
+            </TableHead>
+          ))}
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          {tables.slice(8, tables.length).map((table, idx) => (
+            <TableCell className="text-2xl" key={table.id}>
+              № {table.order}
+              {idx === 7 && <br />}
             </TableCell>
           ))}
         </TableRow>

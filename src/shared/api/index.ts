@@ -6,6 +6,7 @@ export const deleteAdminTask = (id: number) => {
   return customFetch({
     path: "delete-task",
     method: "DELETE",
+    token: `Token ${getCookie("token")}`,
     body: { json: { id } },
   });
 };
@@ -13,7 +14,7 @@ export const fetchAdminTask = (table: number): Promise<IQueue> => {
   return customFetch({
     path: `get-admin-task/${table}`,
     method: "GET",
-    // token: `Token ${getCookie("token")}`,
+    token: `Token ${getCookie("token")}`,
   });
 };
 export const getAuthedTable = () => {

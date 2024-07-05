@@ -1,7 +1,12 @@
 import { Header } from "@/widgets";
+import { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
+export const metadata: Metadata = {
+  title: "Очередь ALIKHAN BOKEIKHAN UNIVERSITY",
+  description: "Онлайн очередь приемной комиссии ALIKHAN BOKEIKHAN UNIVERSITY",
+};
 export default async function LocaleLayout({
   children,
   params: { locale },
