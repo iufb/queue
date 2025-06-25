@@ -69,7 +69,6 @@ export const AdminQueueView = ({ }: AdminQueueViewProps) => {
                     <ClockIcon className="my-auto " />
                     <section>
                         <p className="text-lg">В обработке </p>
-                        <span className="text-sm">{current.current.discipline}</span>
                         <span className="block font-bold ">Номер : #{current.current.id}</span>
                     </section>
                 </section>

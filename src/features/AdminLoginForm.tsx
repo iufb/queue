@@ -32,12 +32,12 @@ export const AdminLoginForm = () => {
             .finally(() => setLoading(false));
     };
     return (
-        <Card>
+        <Card className="max-w-xl w-full">
             <CardHeader>
                 <CardTitle className="text-center">Авторизация</CardTitle>
             </CardHeader>
-            <CardContent>
-                <form className="flex flex-col gap-3 p-4" onSubmit={handleLogin}>
+            <CardContent >
+                <form className=" space-y-5 p-4" onSubmit={handleLogin}>
                     <Input
                         label="Логин"
                         type="text"
@@ -57,7 +57,7 @@ export const AdminLoginForm = () => {
                         }
                     />
                     {error && <span className="error">{error}</span>}
-                    <Button>Войти</Button>
+                    <Button className="w-full">Войти</Button>
                 </form>
             </CardContent>
         </Card>

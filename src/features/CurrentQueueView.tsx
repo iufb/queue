@@ -94,7 +94,6 @@ export const CurrentQueueView = ({ }: CurrentQueueViewProps) => {
                 <h2 className="text-xl font-semibold text-gray-800">
                     {t("table")} #{current?.table}
                 </h2>
-                <p className="text-sm text-gray-500">{current?.discipline}</p>
             </div>
 
             <div className="flex flex-col items-center gap-3">

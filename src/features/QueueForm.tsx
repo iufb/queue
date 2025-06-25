@@ -1,11 +1,9 @@
 "use client";
-import { DisciplinesSelect } from "@/features/DisciplinesSelect";
 import { createQueue } from "@/shared/api";
 import { useRequest } from "@/shared/lib";
 import {
     Button,
     Card,
-    CardDescription,
     CardHeader,
     CardTitle
 } from "@/shared/ui";
@@ -50,13 +48,13 @@ export const QueueForm = () => {
         <Card>
             <CardHeader>
                 <CardTitle>{t("title")}</CardTitle>
-                <CardDescription>{t("desc")}</CardDescription>
+                {/* <CardDescription>{t("desc")}</CardDescription> */}
             </CardHeader>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4">
-                <DisciplinesSelect onValueChange={(value) => setProgram(value)} />
+                {/* <DisciplinesSelect onValueChange={(value) => setProgram(value)} /> */}
                 {error && <span className="error">{error}</span>}
                 {success && <span className="success">{success}</span>}
-                <Button className="mt-6" type="submit" loading={loading} disabled={program == ""}>
+                <Button className="mt-6" type="submit" loading={loading} disabled={loading}>
                     {t("submitBtn")}
                 </Button>
             </form>
